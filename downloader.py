@@ -16,6 +16,6 @@ divs = soup.find_all(id=True, class_="imagelarge")
 i = 1
 image = urllib.URLopener()
 for div in divs:
-    print "Downloading photo ", i, " of ", len(divs)
+    print "Downloading photo", i, "of", len(divs)
     image.retrieve(Template(template).substitute(id=div['id']), "photos/" + str(i) + ".jpg")
     i += 1
