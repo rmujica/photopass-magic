@@ -3,7 +3,11 @@ from string import Template
 import urllib
 
 # the html file from where to get the photo ids
-html_doc = open("/home/rene/Descargas/thumb1.html")
+# here you have to download the html file where you preview your photos
+# and change the CHANGEME string to that file.
+# you should download this file: http://www.disneyphotopass.com/photopass.aspx?cat=professional&album=All
+# note that you may have to download several html files due to the page showing only 60 photos per link
+html_doc = open("CHANGEME")
 
 # the url template for downloading the photo
 template = "http://www.disneyphotopass.com/api/photostore/previewEdits.pix?quality=100&width=&ImageId=${id}"
@@ -19,3 +23,5 @@ for div in divs:
     print "Downloading photo", i, "of", len(divs)
     image.retrieve(Template(template).substitute(id=div['id']), "photos/" + str(i) + ".jpg")
     i += 1
+
+# we're done! your photos should be on the "photos" folder.
